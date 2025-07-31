@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
 
 # Load data
@@ -53,6 +54,8 @@ plt.xlabel("Feature Value (Dimension 0)")
 
 plt.ylabel("Frequency")
 plt.grid(True)
+plt.savefig("embedding_feature_histogram_teacher.png")
+
 plt.show()
 
 # Calculate mean and variance
@@ -76,6 +79,7 @@ plt.title("Minkowski Distance between Two Feature Vectors (r=1 to 10)")
 plt.xlabel("r (order of Minkowski distance)")
 plt.ylabel("Distance")
 plt.grid(True)
+plt.savefig("minkowski_distance_plot.png")
 plt.show()
 
 #%%
@@ -120,6 +124,7 @@ plt.plot(range(1, 12), acc_list, marker='o')
 plt.xlabel('k')
 plt.ylabel('Accuracy')
 plt.title('Accuracy vs. k')
+plt.savefig("knn_accuracy_vs_k.png")
 plt.show()
 
 # A9. Confusion Matrix and Classification Report
