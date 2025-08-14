@@ -115,28 +115,33 @@ for k in k_values:
     db_scores.append(davies_bouldin_score(X_train, kmeans.labels_))
 
 # Plotting metrics against k values
-plt.figure(figsize=(15, 5))
-
-plt.subplot(1, 3, 1)
+# Silhouette Score vs. k
+plt.figure()
 plt.plot(k_values, sil_scores, marker='o')
 plt.title('Silhouette Score vs. k')
 plt.xlabel('Number of Clusters (k)')
 plt.ylabel('Silhouette Score')
+plt.savefig('silhouette_score_vs_k.png', dpi=300)
+plt.close()
 
-plt.subplot(1, 3, 2)
+# Calinski-Harabasz Score vs. k
+plt.figure()
 plt.plot(k_values, ch_scores, marker='o')
 plt.title('Calinski-Harabasz Score vs. k')
 plt.xlabel('Number of Clusters (k)')
 plt.ylabel('CH Score')
+plt.savefig('calinski_harabasz_score_vs_k.png', dpi=300)
+plt.close()
 
-plt.subplot(1, 3, 3)
+# Davies-Bouldin Index vs. k
+plt.figure()
 plt.plot(k_values, db_scores, marker='o')
 plt.title('Davies-Bouldin Index vs. k')
 plt.xlabel('Number of Clusters (k)')
 plt.ylabel('DB Index')
+plt.savefig('davies_bouldin_index_vs_k.png', dpi=300)
+plt.close()
 
-plt.tight_layout()
-plt.show()
 
 # A7: Elbow plot to determine optimal k
 distortions = []
@@ -149,4 +154,7 @@ plt.plot(k_values, distortions, marker='o')
 plt.title('Elbow Plot for Optimal k')
 plt.xlabel('Number of Clusters (k)')
 plt.ylabel('Distortion (Inertia)')
-plt.show()
+plt.savefig('elbow_plot_for_optimal_k.png', dpi=300)
+plt.close()
+
+
